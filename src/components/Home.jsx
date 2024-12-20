@@ -6,7 +6,7 @@ import Introduction from './Introduction';
 
 const Home = () => {
     const [allproducts] = React.useState(products);
-    const categories = [...new Set(allproducts.map((item) => item.category))];
+    const categories = ["All",...new Set(allproducts.map((item) => item.category))];
     return (
         <div className='homecolor mt-1'>
             <div
