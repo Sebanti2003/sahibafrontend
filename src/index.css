@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.blob{
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50% ;
+    animation: morph 7s ease-in-out infinite;
+}
+@keyframes morph {
+    0% {
+        border-radius: 70% 50% 50% 50% / 80% 50% 50% 50% ;
+    }
+    50% {
+        border-radius: 40% 60% 30% 40% / 20% 30% 70% 80% ;
+
+    }
+    100% {
+        border-radius: 70% 50% 50% 50% / 80% 50% 50% 50% ;
+    }
+} 
+    
+@font-face {
+    font-family: anzo;
+    src: url('./assets/file.woff2');
+}
+@font-face {
+    font-family: anzonew;
+    src: url('./assets/madefor-text.var.original.woff2');
+}
+/* @font-face {
+    font-family: anzo2;
+    src: url(./assets/file\ \(1\).woff2);
+}
+@font-face {
+    font-family: anzo3;
+    src: url(./assets/file\ \(2\).woff2);
+}
+@font-face {
+    font-family: anzo4;
+    src: url(./assets/file\ \(3\).woff2);
+} */
+@font-face {
+    font-family: anzo5;
+    src: url('./assets/DM-Sans-regular.woff2');
+}
+/* @font-face {
+    font-family: anzo6;
+    src: url(./assets/DM-Sans-regular\ \(1\).woff2);
+}
+@font-face {
+    font-family: anzo7;
+    src: url(./assets/DM-Sans-regular\ \(2\).woff2);
+}
+@font-face {
+    font-family: poppins400;
+    src: url(./assets/Poppins-400.woff2);
+} */
+@font-face {
+    font-family: anzo8;
+    src: url('./assets/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2');
+}
+@font-face{
+    font-family: anzo9;
+    src: url('./assets/Kugile_Demo.ttf');
+}
+.continuetext{
+    background-color: rgb(141,96,93);
+}
