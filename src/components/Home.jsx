@@ -1,13 +1,17 @@
-import React from 'react'
+// import React from 'react'
+import Discountcontinuous from './Discountcontinuous';
 import Introduction from './Introduction';
 
 const Home = () => {
-    const [more, setMore] = React.useState(false);
+
     return (
         <>
-        <div>
-            <Introduction/>
-        </div>
+            <div>
+                <Discountcontinuous />
+            </div>
+            <div>
+                <Introduction />
+            </div>
         </>
     )
 }
