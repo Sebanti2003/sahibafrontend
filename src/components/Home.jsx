@@ -1,11 +1,12 @@
-// import React from 'react'
+import React from 'react'
 // import Discountcontinuous from './Discountcontinuous';
 import { products } from '../data/products';
+import Dropdown from './Dropdown';
 import Introduction from './Introduction';
 
 const Home = () => {
-    // const [allproducts] = React.useState(products);
-    // const categories = [...new Set(allproducts.map((item) => item.category))];
+    const [allproducts] = React.useState(products);
+    const categories = [...new Set(allproducts.map((item) => item.category))];
     return (
         <div className='homecolor mt-1'>
             <div
@@ -16,6 +17,10 @@ const Home = () => {
                 <Introduction />
             </div>
             <div>
+                <div className='flex justify-between items-center px-5'>
+                    <div className='text-2xl font-bold font-[anzonew]'>Products</div>
+                    <div className='mt-2'><Dropdown categories={categories} /></div>
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 place-items-center p-5 gap-5 transition-all duration-500">
 
                     {products.map((item) => {
