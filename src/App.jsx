@@ -9,6 +9,7 @@ import Discountcontinuous from "./components/Discountcontinuous";
 import { store } from "./store/store";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Cart from "./pages/Cart";
 function App() {
   return (
     <Provider store={store}>
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
         </BrowserRouter>
       </div>
