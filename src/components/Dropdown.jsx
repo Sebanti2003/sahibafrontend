@@ -14,7 +14,7 @@ const Dropdown = ({ categories }) => {
                     </svg>
                 </button>
             </div>
-            {isOpen && <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
+            {isOpen && <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 overflow-y-scroll h-64 ring-black/5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
                 <div className="py-1 flex flex-col gap-3 group" role="none">
                     {categoriesnew.map((item) => { if (item == "") return; return (<div key={item} className="block px-4 py-2 transition-all duration-500 hover:bg-gray-100 font-bold text-sm cursor-pointer  text-gray-700 " role="menuitem" tabIndex="-1" id="menu-item-0">{item}</div>) })}
                 </div>

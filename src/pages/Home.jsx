@@ -1,12 +1,35 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 // import Discountcontinuous from './Discountcontinuous';
 import { products } from '../data/products';
-import Dropdown from './Dropdown';
-import Introduction from './Introduction';
-
+import axios from 'axios';
+import Dropdown from '../components/Dropdown';
+import Introduction from '../components/Introduction';
+import { useAppSelector, useAppDispatch } from '../store/hook';
+import { setauthenticatedornot } from '../slices/authenticateornot';
 const Home = () => {
+    useEffect(() => {
+        const getallproducts=async()=>{
+            try {
+                const products = await axios.get("https://mytaylorzonebackend.onrender.com/get-product",{
+                    withCredentials: true
+                });
+                console.log(products.data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        getallproducts();
+    },[]);
+    const authenticatedornot = useAppSelector((state) => state.authenticatedornot);
+    const dispatch = useAppDispatch();
+    console.log(authenticatedornot.auth);
+    dispatch(setauthenticatedornot({
+        auth: false,
+        value: "",
+        role: ""
+    }))
     const [allproducts] = React.useState(products);
-    const categories = ["All",...new Set(allproducts.map((item) => item.category))];
+    const categories = ["All", ...new Set(allproducts.map((item) => item.category))];
     return (
         <div className='homecolor mt-1'>
             <div
@@ -16,15 +39,18 @@ const Home = () => {
             <div>
                 <Introduction />
             </div>
-            <div>
+            <div className='flex flex-col gap-3'>
                 <div className='flex justify-between items-center px-5'>
                     <div className='text-2xl font-bold font-[anzonew]'>Products</div>
                     <div className='mt-2'><Dropdown categories={categories} /></div>
                 </div>
+                <div className='mx-5'>
+                    <input placeholder='Search...' className='w-full p-2 placeholder:text-sm placeholder:font-[anzonew] border-2 border-black rounded-lg' type="text" />
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 place-items-center p-5 gap-5 transition-all duration-500">
 
                     {products.map((item) => {
-                        if(item.name == ""){
+                        if (item.name == "") {
                             return;
                         }
                         return (
