@@ -1,9 +1,13 @@
 // import React from 'react'
 import { FaTruck } from "react-icons/fa";
-import { IoPersonOutline } from "react-icons/io5";
+import { IoMenu, IoPersonOutline } from "react-icons/io5";
 import { IoBagOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { useAppSelector,useAppDispatch } from '../store/hook';
+import { open } from '../slices/sidebar';
 const Navbar = () => {
+  const dispatch=useAppDispatch();
+  const slider=useAppSelector(state=>state.slider.value);
   return (
     <div className='flex max-md:flex-col navcolor mt-1 justify-between items-center p-3 gap-3'>
       <Link to='/' className='text-2xl font-bold font-[anzo9] flex items-center gap-2'>Mytalorzone<span className='text-sm'>By Sahiba</span></Link>
@@ -22,6 +26,7 @@ const Navbar = () => {
         <FaTruck className='cursor-pointer hover:text-2xl transition-all duration-500' />
         <IoPersonOutline className='cursor-pointer hover:text-2xl transition-all duration-500' />
         <IoBagOutline className='cursor-pointer hover:text-2xl transition-all duration-500' />
+        <IoMenu onClick={() => dispatch(open({value:!slider}))} className='cursor-pointer hover:text-2xl transition-all duration-500' />
       </div>
     </div>
   )

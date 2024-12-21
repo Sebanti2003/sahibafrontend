@@ -3,7 +3,9 @@ import axios from 'axios';
 import Introduction from '../components/Introduction';
 import { useAppSelector, useAppDispatch } from '../store/hook';
 import { setauthenticatedornot } from '../slices/authenticateornot';
+import Sidebar from '../components/Sidebar';
 const Home = () => {
+    // const open=useAppSelector(state=>state.slider.value);
     const [allproducts, setallproducts] = useState([]);
     const [products, setproducts] = useState([]);
     useEffect(() => {
@@ -65,7 +67,8 @@ const Home = () => {
         allproducts
     ]);
     return (
-        <div className='homecolor mt-1'>
+        <div className='homecolor mt-1 relative'>
+            <Sidebar/>
             <div
                 className="h-screen w-full bg-center bg-no-repeat sm:bg-cover bg-contain"
                 style={{ backgroundImage: "url('/face.avif')" }}
