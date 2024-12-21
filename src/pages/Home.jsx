@@ -11,7 +11,7 @@ const Home = () => {
         const getallproducts=async()=>{
             try {
                 const products = await axios.get("https://mytaylorzonebackend.onrender.com/get-product",{
-                    withCredentials: true
+                    // withCredentials: true
                 });
                 console.log(products.data);
             } catch (error) {
