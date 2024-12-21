@@ -7,15 +7,20 @@ import { Provider } from "react-redux";
 import Navbar from "./components/Navbar";
 import Discountcontinuous from "./components/Discountcontinuous";
 import { store } from "./store/store";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 function App() {
   return (
     <Provider store={store}>
       <div className="py-1">
-        <Discountcontinuous />
-        <Navbar />
+
         <BrowserRouter>
+          <Discountcontinuous />
+          <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </BrowserRouter>
       </div>
